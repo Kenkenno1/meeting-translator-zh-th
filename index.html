@@ -785,7 +785,7 @@
       API_BASE: 'https://api.openai.com/v1',
       TTS_BASE: 'https://api.openai.com/v1/audio/speech',
       TTS_VOICE: 'nova',
-      USE_OPENAI_TTS: false,  // Set true to enable OpenAI HD TTS
+      USE_OPENAI_TTS: true,  // Set true to enable OpenAI HD TTS
       TTS_TIMEOUT_MIN_MS: 15000,
       TOAST_MS: 3000,
       TOAST_COOLDOWN_MS: 800,
@@ -1275,7 +1275,7 @@
       if (!text?.trim() || !state.ttsOn) return;
       if (state.speaking) stopSpeaking();
       if ('speechSynthesis' in window) speechSynthesis.cancel();
-      await playTtsCore(text, lang, { openAiFirst: false });
+      await playTtsCore(text, lang, { openAiFirst: true });
     }
 
     function stopSpeaking() {
